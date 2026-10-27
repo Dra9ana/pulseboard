@@ -1,6 +1,6 @@
 # Engineering
 
-The code on disk is the uv skeleton. Packages in the map are **planned**.
+The code on disk is a uv workspace with a hello entry in `apps/pulseboard-server`. FastAPI and the other packages in the map are **planned**.
 
 ## Start here
 

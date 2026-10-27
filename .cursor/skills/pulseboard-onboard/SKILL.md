@@ -38,7 +38,7 @@ If the user names an area, also read the matching page under `docs/engineering/`
 
 ## 3. Reply with an onboarding summary
 
-- **What is live** — the uv skeleton, plus docs and rules
+- **What is live** — the uv workspace, the hello entry in `apps/pulseboard-server`, `make flct`, plus docs and rules
 - **Where this task belongs** — module, or "no code yet, next ticket"
 - **Risks** — facade bypass, prompt dumps, describing planned work as shipped
 - **Next command** — `/tasks` if they want the next ticket, otherwise wait

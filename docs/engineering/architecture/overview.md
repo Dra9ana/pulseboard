@@ -1,6 +1,6 @@
 # Architecture overview
 
-**Status: planned.** The running process is `main.py`. The packages below are the target, recorded in [ADR 0001](../decisions/0001-modular-monolith.md).
+**Status: planned**, except the hello entry in `apps/pulseboard-server`. FastAPI and the packages below are the target, recorded in [ADR 0001](../decisions/0001-modular-monolith.md).
 
 ## Shape
 

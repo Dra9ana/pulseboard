@@ -2,7 +2,7 @@
 
 This page is the map. It is the copy that stays in git. Feature behavior, once it exists, is a handbook, not a second copy of this page.
 
-Status of the code: uv skeleton (`main.py`, `pyproject.toml`). Domain packages are **planned**.
+Status of the code: uv workspace. `apps/pulseboard-server` prints `Hello from pulseboard!`. FastAPI, the worker, and domain packages are **planned**.
 
 ## Product
 
@@ -56,7 +56,7 @@ flowchart LR
 
 | Path | Role | Status |
 |------|------|--------|
-| `apps/pulseboard-server` | FastAPI composition root | planned |
+| `apps/pulseboard-server` | Thin shell. Hello entry is live. FastAPI composition root is planned | hello entry |
 | `apps/pulseboard-worker` | Aggregation and anomaly detection, no LLM | planned |
 | `packages/module-events` | Event ingest | planned |
 | `packages/module-metrics` | Aggregates, funnels, segments | planned |
@@ -84,4 +84,4 @@ After v1, separate tickets: `list_alerts`, `ack_alert`, `run_safe_sql`, Reporter
 
 ## What this setup step does not do
 
-It does not create the uv workspace, Compose, or domain packages. That work starts when `/tasks` writes ticket 01 and a later chat implements it.
+It does not create Compose or domain packages. Ticket 01 added the uv workspace, `make flct`, and the hello entry in `apps/pulseboard-server`.

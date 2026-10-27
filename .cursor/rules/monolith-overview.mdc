@@ -7,7 +7,7 @@ alwaysApply: true
 
 Local-first analytics platform. Work from the repository root.
 
-The running code is still the uv skeleton (`main.py`). Packages below are the target layout. Do not describe them as live until the code exists.
+The running code is the hello entry in `apps/pulseboard-server`. Packages below are the target layout. Do not describe them as live until the code exists.
 
 ## Read first
 
@@ -35,7 +35,7 @@ libs/pulseboard-connectors/      → Postgres, Redis, Ollama
 mcp/                             → our MCP server; tools call facades
 ```
 
-Live today: skeleton only. Planned: the packages above. Vector search is not part of v1.
+Live today: the thin hello shell. Planned: FastAPI in that shell, and the packages above. Vector search is not part of v1.
 
 ## Golden rules
 

@@ -16,10 +16,11 @@ Incident memory is a short report row in Postgres. Vector search is a later bonu
 
 ## Status
 
-The repository is the uv skeleton plus the engineering map. Domain packages are **planned**. See [docs/engineering/project-plan.md](docs/engineering/project-plan.md).
+The repository is a uv workspace. The thin shell prints a hello line. Domain packages are **planned**. See [docs/engineering/project-plan.md](docs/engineering/project-plan.md).
 
 ```bash
-uv run python main.py
+uv run python -m pulseboard_server.main
+make flct
 ```
 
 ## Agent trace (target)

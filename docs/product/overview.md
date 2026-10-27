@@ -4,7 +4,7 @@ Pulseboard is a local analytics product. It records events, rolls them into metr
 
 The investigator is not a general chat and it does not read documents.
 
-Nothing in this page is running yet except the project skeleton. The investigator, the UI, and alerts are planned.
+Nothing on this page is running yet. The workspace shell only prints a hello line. The investigator, the UI, and alerts are planned.
 
 ## Who it is for
 
