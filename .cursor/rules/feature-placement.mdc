@@ -1,0 +1,35 @@
+---
+description: Which module owns a new feature — decision table and STOP list
+alwaysApply: true
+---
+
+# Feature Placement
+
+## Invariant
+
+Before writing code, name the owning module. One module = one domain. These packages are planned until their code lands.
+
+## Decision table
+
+| Question / feature | Module |
+|--------------------|--------|
+| Event ingest and read? | `module-events` |
+| Aggregates, funnels, segments? | `module-metrics` |
+| Spike/drop detection, alerts, incident rows? | `module-anomalies` |
+| Threads and SSE for agent replies? | `module-chat` → `AiModule` |
+| Investigator, Reporter, Alert triage graphs? | `module-ai` (no HTTP router) |
+| New ORM entity? | `pulseboard-models` |
+| Ollama, Postgres, or Redis adapter? | `pulseboard-connectors` + port in `pulseboard-core` |
+| MCP tool schema and server? | `mcp/` calling a facade, not another module's internals |
+
+## STOP list
+
+- Agent graph imported from chat, events, or metrics → **STOP** → `AiModule` only
+- Business logic in `apps/pulseboard-server/main.py` → **STOP** → module `services/` + `api.py`
+- LLM call that bypasses `LlmPort` → **STOP** → Ollama adapter behind the port
+- Raw events pasted into a prompt → **STOP** → MCP tool returns an aggregate or a small sample
+- Vector index as the memory of an incident → **STOP** → incident report row in Postgres
+
+## Deep dive
+
+`docs/engineering/how-we-work/feature-placement.md`

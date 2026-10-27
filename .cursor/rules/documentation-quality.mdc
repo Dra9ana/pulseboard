@@ -1,0 +1,25 @@
+---
+description: Documentation quality bar — current-state, handbooks, canonical paths
+alwaysApply: true
+---
+
+# Documentation quality bar
+
+## Invariant
+
+Handbooks, rules, and skills are the source of truth for how to work.
+Current-state claims must match the running system. Planned work must say planned.
+Capability behavior lives in a feature handbook, updated in the same change that ships the behavior.
+`docs/engineering/project-plan.md` is the map. It is not a second description of runtime behavior.
+
+## STOP list
+
+- Capability behavior only in an ADR or a task file → **STOP** → handbook when the capability ships
+- Planned package described as live → **STOP** → write **planned**
+- Invented live feature (vector search, Reporter, Alert triage, React UI) → **STOP**
+- Filled change note left in `docs/engineering/changes/` after the handbook lands → **STOP** → delete the note
+- Index one-liner that diverges from the rule → **STOP** → fix the index
+
+## Deep dive
+
+`docs/engineering/how-we-work/documentation.md`

@@ -1,0 +1,42 @@
+---
+description: Python package layout and layering in the Pulseboard monolith
+globs: "packages/**/*.py,libs/**/*.py,apps/**/*.py,mcp/**/*.py"
+alwaysApply: false
+---
+
+# Python Package Structure
+
+## Layout per module
+
+```
+packages/module-{name}/
+└── module_{name}/
+    ├── api.py          # facade — sole cross-module entry
+    ├── routes/         # HTTP adapter, when the module has HTTP
+    ├── ports/
+    ├── services/
+    ├── adapters/
+    └── schemas/
+```
+
+`module-ai` has `agents/` and no `routes/`.
+
+## Naming
+
+- Distribution: `module-metrics`. Import: `module_metrics`.
+- Facade class: `{Domain}Module` (`MetricsModule`, `AiModule`).
+- Service: `{Domain}Service`.
+
+## Layering
+
+```
+routes/  →  api.py  →  services/  →  ports/  ←  adapters/
+```
+
+MCP tools call a facade method. They do not import `services/` or `agents/`.
+
+## Shared libs
+
+- `pulseboard-core` — ports and settings. No I/O.
+- `pulseboard-models` — ORM only.
+- `pulseboard-connectors` — I/O adapters.

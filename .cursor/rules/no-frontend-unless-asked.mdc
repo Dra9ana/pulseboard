@@ -1,0 +1,20 @@
+---
+description: Do not add or edit the React UI unless the user explicitly asks
+alwaysApply: true
+---
+
+# Frontend Off-Limits Unless Asked
+
+## Invariant
+
+Do not create or edit a web client unless the user explicitly asks for the UI.
+The React app is planned. It is not part of the first backend tickets.
+
+## Default scope
+
+Backend modules, the worker, MCP, libs, Compose, and docs. UI files — no.
+
+## STOP list
+
+- New HTTP route → **STOP** adding pages or a TypeScript client
+- "Make it work" without mentioning UI → **STOP** → backend only

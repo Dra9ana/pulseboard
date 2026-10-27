@@ -1,0 +1,30 @@
+---
+description: Thin FastAPI routes and module facades
+globs: "**/routes/**/*.py,**/api.py,apps/**/*.py"
+alwaysApply: false
+---
+
+# FastAPI Routes and Facades
+
+## Invariant
+
+Routes call facades only. No SQL and no direct service imports in a route.
+
+## Route pattern
+
+```python
+@router.get("/metrics/{name}", response_model=MetricSeries)
+def get_metric(
+    name: str,
+    metrics: Annotated[MetricsModule, Depends(get_metrics_module)],
+) -> MetricSeries:
+    return metrics.get_metric(name)
+```
+
+- Set an explicit `response_model`.
+- Keep `apps/pulseboard-server` as the composition root: mount routers, build modules, store them on `app.state`.
+- Domain rules stay in the module service.
+
+## Facade
+
+`module_*/api.py` is the only symbol other packages import from that module.

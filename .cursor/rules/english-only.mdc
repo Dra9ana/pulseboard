@@ -1,0 +1,20 @@
+---
+description: English-only identifiers, comments, docstrings, and AI-authored text
+alwaysApply: true
+---
+
+# English Only
+
+## Invariant
+
+All new or edited code, comments, docstrings, Cursor rules, skills, and AI-drafted commit text must be in English.
+
+## STOP list
+
+- Non-English identifiers or docstrings on new code → use English names
+- Mixed-language comments → English only
+
+## Exceptions
+
+- User-facing product copy may be localized later. Source and docs stay English.
+- Quoted external names (model tags such as `qwen2.5:7b`) stay as published.

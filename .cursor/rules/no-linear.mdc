@@ -1,0 +1,20 @@
+---
+description: No Linear connection — tickets are markdown files in tasks/
+alwaysApply: true
+---
+
+# No Linear
+
+## Invariant
+
+Do not call Linear, do not add a Linear token, and do not use a Linear MCP server.
+Tickets are markdown files in `tasks/`. One file is one pull request.
+
+## STOP list
+
+- "Create the Linear issue" → **STOP** → write `tasks/<slug>.md` via `/tasks`
+- Linear project id, team id, or API key in env examples → **STOP**
+
+## Deep dive
+
+`tasks/README.md` and `.cursor/skills/repo-tasks/SKILL.md`

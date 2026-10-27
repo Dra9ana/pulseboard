@@ -1,0 +1,55 @@
+---
+description: Pulseboard modular monolith map, golden rules, and onboarding links
+alwaysApply: true
+---
+
+# Pulseboard Monolith Overview
+
+Local-first analytics platform. Work from the repository root.
+
+The running code is still the uv skeleton (`main.py`). Packages below are the target layout. Do not describe them as live until the code exists.
+
+## Read first
+
+1. `docs/engineering/project-plan.md`
+2. `docs/engineering/README.md`
+3. `docs/engineering/how-we-work/feature-placement.md`
+4. `AGENTS.md`
+
+## Target repo map
+
+```
+apps/pulseboard-server/          → thin FastAPI shell
+apps/pulseboard-worker/          → aggregate + anomaly worker (no LLM)
+
+packages/module-events/          → event ingest
+packages/module-metrics/         → aggregates, funnels, segments
+packages/module-anomalies/       → spike/drop, alerts, incident reports
+packages/module-chat/            → threads + SSE
+packages/module-ai/              → LangGraph agents via AiModule only
+
+libs/pulseboard-core/            → ports (LlmPort and read ports)
+libs/pulseboard-models/          → ORM only
+libs/pulseboard-connectors/      → Postgres, Redis, Ollama
+
+mcp/                             → our MCP server; tools call facades
+```
+
+Live today: skeleton only. Planned: the packages above. Vector search is not part of v1.
+
+## Golden rules
+
+1. Thin app shell — no domain logic in `apps/*/main.py`.
+2. One module = one domain.
+3. Cross-module calls only via `module_*/api.py`.
+4. ORM only in `pulseboard-models`.
+5. Production agents are compiled LangGraph graphs invoked from the API through `AiModule`.
+6. The agent reads tool aggregates. It does not receive raw event dumps.
+7. Ollama is the LLM adapter. The app runs without the model.
+8. Our MCP server is the tool surface. A third-party MCP server is not the core.
+
+## Deep dive
+
+- Project plan: `docs/engineering/project-plan.md`
+- Agents: `.cursor/rules/production-agents.mdc`
+- ADRs: `docs/engineering/decisions/README.md`

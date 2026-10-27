@@ -1,0 +1,51 @@
+---
+description: Production LangGraph agents, AiModule facade, own MCP tools, Ollama port
+globs: "**/module_ai/**/*.py,mcp/**/*.py"
+alwaysApply: false
+---
+
+# Production Agents
+
+## Invariant
+
+Other modules call **`AiModule` only** — never `module_ai.agents` or `module_ai.services`.
+There is no `module-ai` HTTP router. SSE is mounted by `module-chat`.
+
+The graph that runs is the production graph. LangGraph Studio, when it exists, is a local debugger and is not the runtime.
+
+## Agent layout (target)
+
+```
+module_ai/agents/
+├── base.py
+├── investigator/     # v1 graph
+├── reporter/         # planned
+└── alert_triage/     # planned
+```
+
+Do not add a general chatbot graph.
+
+## Facade
+
+`AiModule.investigate` is the v1 entry. Chat prepare stays off the API event loop once streaming exists.
+
+## Tools
+
+- The agent calls our MCP server.
+- Tools return aggregates or a small sample (`get_event_samples`).
+- v1 tools are read-only, rate-limited, and non-destructive.
+- `ack_alert` and `run_safe_sql` are later. SQL is an allowlist, not free-form.
+
+## Dependencies
+
+`module-ai` must not import events, metrics, anomalies, or chat internals.
+LLM calls go through `LlmPort`. The first adapter is Ollama.
+
+## Trace
+
+Each run logs `AGENT_START`, each tool name, `CONCLUSION` with evidence, and `AGENT_END` (latency, tools_used, tokens_local).
+
+## Deep dive
+
+- [ADR 0002](../../docs/engineering/decisions/0002-production-langgraph-agents.md)
+- [ADR 0003](../../docs/engineering/decisions/0003-local-ollama.md)

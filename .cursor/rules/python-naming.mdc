@@ -1,0 +1,23 @@
+---
+description: Google Python Style naming for Python code
+globs: "**/*.py"
+alwaysApply: false
+---
+
+# Python Naming
+
+Follow the Google Python Style Guide for names.
+
+| Type | Public |
+|------|--------|
+| Modules / files | `lower_with_under.py` |
+| Classes | `CapWords` |
+| Functions | `lower_with_under` |
+| Constants | `CAPS_WITH_UNDER` |
+
+## STOP list
+
+- Dashes in an importable package or a `.py` filename
+- Type baked into the name (`events_list`, `metric_dict`)
+
+Distribution names may use dashes (`module-metrics`). Import packages use underscores (`module_metrics`).

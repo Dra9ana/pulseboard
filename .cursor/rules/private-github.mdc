@@ -1,0 +1,19 @@
+---
+description: Personal private GitHub account only
+alwaysApply: true
+---
+
+# Private GitHub
+
+## Invariant
+
+This repository stays on the owner's personal private GitHub.
+
+## STOP list
+
+- `git remote add` or `git push` to any account other than the owner's personal GitHub → **STOP**
+- `gh` against any owner other than that personal account → **STOP**
+- Adding a remote when none exists → **STOP** → ask first
+- Pushing when the remote is unset or is not the personal account → **STOP**
+
+If a remote already points at the personal account, leave it. Do not retarget it.

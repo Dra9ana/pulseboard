@@ -1,0 +1,33 @@
+---
+description: Ports in pulseboard-core and adapters in pulseboard-connectors
+globs: "libs/**/*.py,**/adapters/**/*.py"
+alwaysApply: false
+---
+
+# Ports and Adapters
+
+## Invariant
+
+Domain code depends on ports. Infrastructure implements adapters.
+
+## Where things live
+
+| Type | Location |
+|------|----------|
+| Port | `pulseboard_core/ports/` |
+| Adapter | `pulseboard_connectors/` or `module_*/adapters/` |
+
+## External systems
+
+| System | Port | Adapter |
+|--------|------|---------|
+| LLM | `LlmPort` | Ollama connector |
+| Postgres | repository ports on the owning module | SQLAlchemy adapter |
+| Redis | cache or queue port when a module needs it | Redis connector |
+
+New external system: port in core, adapter in connectors, use through the owning module.
+
+## Do not
+
+- Import the Ollama client from a service. Call `LlmPort`.
+- Put ORM models in connectors. Models live in `pulseboard-models`.
