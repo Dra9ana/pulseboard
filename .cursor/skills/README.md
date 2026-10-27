@@ -14,6 +14,7 @@ Project skills in `.cursor/skills/`. Slash commands live in `.cursor/commands/`.
 | [python-tdd-with-uv](python-tdd-with-uv/SKILL.md) | — | New backend logic and tests |
 | [grinding-until-pass](grinding-until-pass/SKILL.md) | `/flct` | Loop until the quality gate passes |
 | [code-review-backend](code-review-backend/SKILL.md) | `/code-review-backend` | Read-only review before commit |
+| [committing](committing/SKILL.md) | `/commit` | Small conventional commits on a feature branch |
 | [update-documentation](update-documentation/SKILL.md) | `/update-docs` | Refresh docs and links |
 | [ponytail](ponytail/SKILL.md) | `/ponytail` | Shortest change that still keeps the architecture |
 | [ponytail-review](ponytail-review/SKILL.md) | `/ponytail-review` | Diff review for extra code only |
@@ -28,7 +29,7 @@ New chat                         →  /onboard
 Next ticket (one at a time)      →  /tasks
 Contract-sized change            →  /propose  →  wait  →  implement
 Backend feature                  →  python-tdd-with-uv
-Before commit                    →  /code-review-backend  →  /flct
+Before commit                    →  /code-review-backend  →  /flct  →  /commit
 Over-building                    →  /ponytail or /ponytail-review
 Docs drifted                     →  /update-docs
 ```

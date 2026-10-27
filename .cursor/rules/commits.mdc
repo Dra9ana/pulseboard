@@ -1,0 +1,21 @@
+---
+description: Small conventional commits on a feature branch. The owner merges to master.
+alwaysApply: true
+---
+
+# Commits
+
+## Invariant
+
+Commit only on a feature branch, in small conventional commits (`feat`, `fix`, `test`, `docs`, `refactor`, `chore`). The owner merges to `master` through a pull request.
+
+## STOP list
+
+- Current branch is `master` or `main` → **STOP** → `git switch -c <branch>` before the first commit
+- One commit that mixes unrelated changes → **STOP** → split into small commits
+- Merge, rebase onto `master`, or `gh pr merge` → **STOP** → the owner merges the pull request by hand
+- Push or open a pull request without an explicit ask → **STOP**
+
+## Deep dive
+
+`.cursor/skills/committing/SKILL.md`

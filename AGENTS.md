@@ -11,6 +11,7 @@ Start a new chat with **`/onboard`**.
 | `/propose` | Change note, then stop, before a contract change |
 | `/flct` | Loop until the quality gate passes |
 | `/code-review-backend` | Read-only review before commit |
+| `/commit` | Small conventional commits on a feature branch |
 | `/ponytail` | Shortest change that keeps the architecture |
 | `/ponytail-review` | Diff review for extra code only |
 | `/update-docs` | Refresh docs and links |
@@ -48,4 +49,5 @@ There is no Linear command. Tickets are markdown files.
 - Put raw events into a prompt
 - Treat vector search as the incident store
 - Add a git remote or push without an explicit ask
+- Commit on `master` or merge to `master`. The owner merges the pull request
 - Call Linear

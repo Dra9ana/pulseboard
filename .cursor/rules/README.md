@@ -22,6 +22,7 @@ Long-form docs live in [`docs/engineering/`](../../docs/engineering/README.md). 
 | [documentation-quality.mdc](documentation-quality.mdc) | Current-state claims and handbooks |
 | [private-github.mdc](private-github.mdc) | Personal private GitHub only |
 | [no-linear.mdc](no-linear.mdc) | Tickets are files in `tasks/` |
+| [commits.mdc](commits.mdc) | Feature branch, small conventional commits, owner merges |
 | [no-frontend-unless-asked.mdc](no-frontend-unless-asked.mdc) | No React UI unless asked |
 | [ports-adapters.mdc](ports-adapters.mdc) | Ports and adapters |
 | [fastapi-routes-facades.mdc](fastapi-routes-facades.mdc) | Thin routes and facades |
